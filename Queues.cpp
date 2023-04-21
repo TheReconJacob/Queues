@@ -2,27 +2,24 @@
 //
 
 #include <iostream>
-#include "Queue.h"
+#include "PriorityQueue.h"
 
 int main()
 {
-    Queue* queue = new Queue(6);
+    PriorityQueue priorityQueue(6);
+    priorityQueue.Insert(3);
+    priorityQueue.Insert(1);
+    priorityQueue.Insert(6);
+    priorityQueue.Insert(4);
+    priorityQueue.Insert(2);
+    priorityQueue.Insert(5);
 
-    queue->Insert(1);
-    queue->Insert(2);
-    queue->Insert(3);
-    queue->Insert(4);
-    queue->Insert(5);
-    queue->Insert(6);
-
-    while (!queue->IsEmpty())
+    while (!priorityQueue.IsEmpty())
     {
-        int item = queue->Remove();
-        std::cout << item << std::endl;
+        std::cout << priorityQueue.Remove() << std::endl;
     }
     std::cout << std::endl;
 
-    delete queue;
     return 0;
 }
 
