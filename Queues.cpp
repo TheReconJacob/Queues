@@ -6,23 +6,23 @@
 
 int main()
 {
-    Queue* myQueue = new Queue(6);
+    Queue* queue = new Queue(6);
 
-    myQueue->Insert(1);
-    myQueue->Insert(2);
-    myQueue->Insert(3);
-    myQueue->Insert(4);
-    myQueue->Insert(5);
-    myQueue->Insert(6);
+    queue->Insert(1);
+    queue->Insert(2);
+    queue->Insert(3);
+    queue->Insert(4);
+    queue->Insert(5);
+    queue->Insert(6);
 
-    while (!myQueue->IsEmpty())
+    while (!queue->IsEmpty())
     {
-        int item = myQueue->Remove();
+        int item = queue->Remove();
         std::cout << item << std::endl;
     }
     std::cout << std::endl;
 
-    delete myQueue;
+    delete queue;
     return 0;
 }
 

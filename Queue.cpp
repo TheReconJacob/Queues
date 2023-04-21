@@ -1,8 +1,11 @@
 #include "Queue.h"
 
-Queue::Queue()
+Queue::Queue(int size)
 {
-	
+    data = new int[size];
+    front = 0;
+    rear = -1;
+    count = 0;
 }
 
 void Queue::Insert(int item)
@@ -27,14 +30,6 @@ bool Queue::IsFull()
 int Queue::PeakFront()
 {
     return data[front];
-}
-
-Queue::Queue(int size)
-{
-    data = new int[size];
-    front = 0;
-    rear = -1;
-    count = 0;
 }
 
 int Queue::Remove()
