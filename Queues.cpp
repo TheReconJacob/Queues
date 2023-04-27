@@ -3,20 +3,23 @@
 
 #include <iostream>
 #include "PriorityQueue.h"
+#include "GameObject.h"
 
 int main()
 {
-    PriorityQueue priorityQueue(6);
-    priorityQueue.Insert(3);
-    priorityQueue.Insert(1);
-    priorityQueue.Insert(6);
-    priorityQueue.Insert(4);
-    priorityQueue.Insert(2);
-    priorityQueue.Insert(5);
+    PriorityQueue<GameObject*> priorityQueue(6);
+    priorityQueue.Insert(new GameObject(3, "GameObject 3"));
+    priorityQueue.Insert(new GameObject(1, "GameObject 1"));
+    priorityQueue.Insert(new GameObject(6, "GameObject 6"));
+    priorityQueue.Insert(new GameObject(4, "GameObject 4"));
+    priorityQueue.Insert(new GameObject(2, "GameObject 2"));
+    priorityQueue.Insert(new GameObject(5, "GameObject 5"));
 
-    while (!priorityQueue.IsEmpty())
-    {
-        std::cout << priorityQueue.Remove() << std::endl;
+    while (!priorityQueue.IsEmpty()) {
+        GameObject* obj = priorityQueue.PeakMin();
+        std::cout << obj->key << ": " << obj->name << std::endl;
+        priorityQueue.Remove();
+        delete obj;
     }
     std::cout << std::endl;
 
